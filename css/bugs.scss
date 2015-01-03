@@ -1,0 +1,243 @@
+$hex-size: 6em;
+$tan-30-deg: 0.57735026919;
+$sqrt-2: 1.41421356237;
+
+$available-hex-color: #E0E0E0;
+$white-bug-color: white;
+$white-active-color: mix($available-hex-color, $white-bug-color);
+$black-bug-color: #0D0D0D;
+$black-active-color: mix($available-hex-color, $black-bug-color);
+
+$img-folder: 'https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8/';
+
+@mixin box-shadow($blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset 0px 0px $blur $color;
+    -moz-box-shadow:inset 0px 0px $blur $color;
+    box-shadow:inset 0px 0px $blur $color;
+  } @else {
+    -webkit-box-shadow: 0px 0px $blur $color;
+    -moz-box-shadow: 0px 0px $blur $color;
+    box-shadow: 0px 0px $blur $color;
+  }
+}
+
+path {
+  fill: red;
+}
+
+// generic transform
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+           transform: $transforms;
+}
+
+@mixin transform-origin ($origin) {
+        moz-transform-origin: $origin;
+	     -o-transform-origin: $origin;
+	    -ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+            transform-origin: $origin;
+}
+
+
+
+#board_window {
+    position:absolute;
+    width:99%;
+    overflow: scroll;
+    white-space: nowrap;
+    bottom: $hex-size + $hex-size * $tan-30-deg / 4;
+    top: 0;
+}
+
+#board {
+    padding-top: $hex-size*$tan-30-deg/4;
+    padding-bottom: $hex-size*$tan-30-deg/4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}
+
+//Styling to make a div a hexagon, and to give it a background scaled to fit to the top and bottom.
+.hexagon {
+    position: relative;
+    display:inline-flex;
+    width: $hex-size; 
+    height: $hex-size * $tan-30-deg;
+    margin: ($hex-size*$tan-30-deg/4)+.2em .1em;
+    border:none;
+    background-color:none;
+    background-size: auto $hex-size + $hex-size * $tan-30-deg / 4;
+    background-repeat: no-repeat;
+    background-position: center;
+    .top,
+    .bottom {
+        position: absolute;
+        z-index: 1;
+        width: $hex-size * $sqrt-2/2;
+        height: $hex-size * $sqrt-2/2;
+        overflow: hidden;
+        @include transform(scaleY($tan-30-deg) rotate(-45deg));
+        background: inherit;
+        //What causes this relationship?
+        left: $hex-size * .1464;
+        -webkit-box-shadow:inherit;
+        -moz-box-shadow:inherit;
+        box-shadow:inherit;
+        
+        &:after {
+            content: "";
+            position: absolute;
+            width: $hex-size;
+            height: $hex-size*$tan-30-deg;
+            @include transform(rotate(45deg) scaleY(1/$tan-30-deg) translateY(-$hex-size * $tan-30-deg / 2));
+            @include transform-origin(0 0);
+            background: inherit;
+            background-position: center;
+        }
+    }
+    
+    .top {
+        top: -$hex-size * $sqrt-2 / 4;
+        &:after {
+            background-position: center top;
+        }
+    }
+    .bottom {
+        bottom: -$hex-size * $sqrt-2 / 4;
+        &:after {
+            background-position: center bottom;
+        }
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $hex-size;
+        height: $hex-size * $tan-30-deg;
+        z-index: 2;
+        background: inherit;
+    }
+}
+
+.bug {
+    z-index: 1;
+    @include box-shadow(.3em, black);
+}
+
+.white {
+    background-color: $white-bug-color;
+}
+
+.black {
+    background-color: $black-bug-color;
+}
+
+.buried {
+    margin-right: -$hex-size;
+    @include transform(translate(-.5em, 0em));
+}
+
+.available {
+    background-color: $available-hex-color;
+}
+
+.selected {
+    @include box-shadow(1em, green);
+}
+
+#board .available {
+    @extend .play_piece;
+}
+.white.bee {
+    background-image:url($img-folder + "/bee_white.svg");
+}
+
+.white.grasshopper {
+    background-image:url($img-folder + "/grasshopper_white.svg");
+}
+
+.white.spider {
+    background-image:url($img-folder + "/spider_white.svg");
+}
+
+.white.beetle {
+    background-image:url($img-folder + "/beetle_white.svg");
+}
+
+.white.ant {
+    background-image:url($img-folder + "/ant_white.svg");
+}
+
+.white.bee {
+    background-image:url($img-folder + "/bee_white.svg");
+}
+
+.black.grasshopper {
+    background-image:url($img-folder + "/grasshopper_black.svg");
+}
+
+.black.spider {
+    background-image:url($img-folder + "/spider_black.svg");
+}
+
+.black.beetle {
+    background-image:url($img-folder + "/beetle_black.svg");
+}
+
+.black.ant {
+    background-image:url($img-folder + "/ant_black.svg");
+}
+
+.black.bee {
+    background-image:url($img-folder + "/bee_black.svg");
+}
+
+.white > .top,
+.white > .bottom {
+    background-color: $white-bug-color;
+}
+
+.white.available > .top,
+.white.available > .bottom {
+    background-color: $white-active-color;
+}
+
+.black > .top,
+.black > .bottom {
+    background-color: $black-bug-color;
+}
+
+.black.available > .top,
+.black.available > .bottom {
+    background-color: $black-active-color;
+}
+
+.board_row:nth-child(2n) {
+    margin-left:$hex-size/2 + .25em;
+}
+
+.cache {
+    position:absolute;
+    width:99%;
+    bottom:0;
+    padding-bottom: $hex-size*$tan-30-deg/4;
+}
+
+.cache > div {
+    display:inline;
+}
+
+.cache > div > div {
+    margin-right:-$hex-size + .5em;
+}
+
+.cache > div > div:last-child {
+    margin-right:0;
+}

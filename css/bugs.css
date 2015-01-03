@@ -1,0 +1,214 @@
+/* line 25, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+path {
+  fill: red; }
+
+/* line 48, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+#board_window {
+  position: absolute;
+  width: 99%;
+  overflow: scroll;
+  white-space: nowrap;
+  bottom: 6.86603em;
+  top: 0; }
+
+/* line 57, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+#board {
+  padding-top: 0.86603em;
+  padding-bottom: 0.86603em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+/* line 67, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.hexagon {
+  position: relative;
+  display: inline-flex;
+  width: 6em;
+  height: 3.4641em;
+  margin: 1.06603em 0.1em;
+  border: none;
+  background-color: none;
+  background-size: auto 6.86603em;
+  background-repeat: no-repeat;
+  background-position: center; }
+  /* line 79, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+  .hexagon .top, .hexagon .bottom {
+    position: absolute;
+    z-index: 1;
+    width: 4.24264em;
+    height: 4.24264em;
+    overflow: hidden;
+    -moz-transform: scaleY(0.57735) rotate(-45deg);
+    -o-transform: scaleY(0.57735) rotate(-45deg);
+    -ms-transform: scaleY(0.57735) rotate(-45deg);
+    -webkit-transform: scaleY(0.57735) rotate(-45deg);
+    transform: scaleY(0.57735) rotate(-45deg);
+    background: inherit;
+    left: 0.8784em;
+    -webkit-box-shadow: inherit;
+    -moz-box-shadow: inherit;
+    box-shadow: inherit; }
+    /* line 93, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+    .hexagon .top:after, .hexagon .bottom:after {
+      content: "";
+      position: absolute;
+      width: 6em;
+      height: 3.4641em;
+      -moz-transform: rotate(45deg) scaleY(1.73205) translateY(-1.73205em);
+      -o-transform: rotate(45deg) scaleY(1.73205) translateY(-1.73205em);
+      -ms-transform: rotate(45deg) scaleY(1.73205) translateY(-1.73205em);
+      -webkit-transform: rotate(45deg) scaleY(1.73205) translateY(-1.73205em);
+      transform: rotate(45deg) scaleY(1.73205) translateY(-1.73205em);
+      moz-transform-origin: 0 0;
+      -o-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      background: inherit;
+      background-position: center; }
+  /* line 105, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+  .hexagon .top {
+    top: -2.12132em; }
+    /* line 107, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+    .hexagon .top:after {
+      background-position: center top; }
+  /* line 111, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+  .hexagon .bottom {
+    bottom: -2.12132em; }
+    /* line 113, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+    .hexagon .bottom:after {
+      background-position: center bottom; }
+  /* line 117, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+  .hexagon:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6em;
+    height: 3.4641em;
+    z-index: 2;
+    background: inherit; }
+
+/* line 129, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.bug {
+  z-index: 1;
+  -webkit-box-shadow: 0px 0px 0.3em black;
+  -moz-box-shadow: 0px 0px 0.3em black;
+  box-shadow: 0px 0px 0.3em black; }
+
+/* line 134, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white {
+  background-color: white; }
+
+/* line 138, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.black {
+  background-color: #0D0D0D; }
+
+/* line 142, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.buried {
+  margin-right: -6em;
+  -moz-transform: translate(-0.5em, 0em);
+  -o-transform: translate(-0.5em, 0em);
+  -ms-transform: translate(-0.5em, 0em);
+  -webkit-transform: translate(-0.5em, 0em);
+  transform: translate(-0.5em, 0em); }
+
+/* line 147, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.available {
+  background-color: #E0E0E0; }
+
+/* line 151, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.selected {
+  -webkit-box-shadow: 0px 0px 1em green;
+  -moz-box-shadow: 0px 0px 1em green;
+  box-shadow: 0px 0px 1em green; }
+
+/* line 158, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white.bee {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//bee_white.svg'); }
+
+/* line 162, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white.grasshopper {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//grasshopper_white.svg'); }
+
+/* line 166, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white.spider {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//spider_white.svg'); }
+
+/* line 170, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white.beetle {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//beetle_white.svg'); }
+
+/* line 174, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white.ant {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//ant_white.svg'); }
+
+/* line 178, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white.bee {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//bee_white.svg'); }
+
+/* line 182, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.black.grasshopper {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//grasshopper_black.svg'); }
+
+/* line 186, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.black.spider {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//spider_black.svg'); }
+
+/* line 190, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.black.beetle {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//beetle_black.svg'); }
+
+/* line 194, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.black.ant {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//ant_black.svg'); }
+
+/* line 198, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.black.bee {
+  background-image: url('https://www.googledrive.com/host/0BxzDObGWCDIlazRVT2lUNnJwSG8//bee_black.svg'); }
+
+/* line 203, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white > .top, .white > .bottom {
+  background-color: white; }
+
+/* line 208, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.white.available > .top, .white.available > .bottom {
+  background-color: #efefef; }
+
+/* line 213, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.black > .top, .black > .bottom {
+  background-color: #0D0D0D; }
+
+/* line 218, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.black.available > .top, .black.available > .bottom {
+  background-color: #767676; }
+
+/* line 222, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.board_row:nth-child(2n) {
+  margin-left: 3.25em; }
+
+/* line 226, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.cache {
+  position: absolute;
+  width: 99%;
+  bottom: 0;
+  padding-bottom: 0.86603em; }
+
+/* line 233, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.cache > div {
+  display: inline; }
+
+/* line 237, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.cache > div > div {
+  margin-right: -5.5em; }
+
+/* line 241, C:/Users/Blake/Google Drive/Hive/css/hive.scss */
+.cache > div > div:last-child {
+  margin-right: 0; }
+
+/*# sourceMappingURL=hive.css.map */
